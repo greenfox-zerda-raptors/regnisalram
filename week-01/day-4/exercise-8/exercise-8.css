@@ -1,0 +1,44 @@
+/* Reset
+div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	padding:0px;
+
+}*/
+
+body {
+	margin: 20px;
+}
+
+p {
+	font-size: 18px;
+	padding: 40px;
+	margin: 0;
+}
+
+div {
+	border: 2px solid black;
+	width: 400px;
+	margin: 20px 20px 20px 0;
+}
+#first_div {
+	background-image: url("duck.png");
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+#second_div {
+	background-image: url("duck.png");
+	background-repeat: no-repeat;
+	background-position: center;;
+}
+
+#third_div {
+	background-image: url("duck.png");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}

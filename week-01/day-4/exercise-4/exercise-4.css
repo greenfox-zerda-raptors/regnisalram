@@ -1,0 +1,30 @@
+/* Reset */
+/*div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+
+}
+*/
+
+body {
+	margin-left: 50px;
+}
+
+h1, h2 {
+	color: green;
+}
+
+strong {
+	color: red;
+}
+
+em {
+	color: blue;
+	font-style: italic;
+}

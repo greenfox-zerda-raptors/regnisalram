@@ -1,0 +1,44 @@
+/* Reset */
+div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+
+}
+
+ul {
+	background-color: green;
+
+	width: 258px;
+
+	margin-bottom: 15px;
+	padding: 25px;
+
+}
+
+li {
+    font-size: 30px;
+    display: block;
+    color: mediumblue;
+    background-color: yellow;
+
+
+    width: 200px;
+
+    padding: 25px;
+
+    margin: 0;
+
+    border: 4px solid black;
+}
+
+.kek li {
+	background-color: aqua;
+	color: red;
+
+}

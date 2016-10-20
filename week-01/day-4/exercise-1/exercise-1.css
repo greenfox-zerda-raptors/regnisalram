@@ -1,0 +1,24 @@
+/* Reset */
+div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+
+}
+
+li {
+    font-size: 30px;
+    display: block;
+    color: red;
+    background-color: yellow;
+
+    width: 200px;
+    padding: 25px;
+    margin: 15px 15px;
+    border: 4px solid black;
+}
