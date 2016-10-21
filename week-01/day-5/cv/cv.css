@@ -1,0 +1,114 @@
+/* Reset */
+div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	margin: 0 auto;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+header {
+	margin: 0 auto;
+}
+
+.header_image {
+	filter: grayscale(50%) opacity(70%);
+}
+
+.header_text {
+	position: absolute;
+	margin: -180px 360px 0 360px;
+	/*margin-top: -180px;*/
+	width: 280px;
+}
+h1, h2 {
+	font-family: 'Abril Fatface', cursive;
+	color: RGBA(34, 34, 34, 1.00);
+}
+
+h1 {
+	font-size: 70px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+main {
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0 auto;
+	width: 700px;
+	color: RGBA(34, 34, 34, 1.00)
+}
+
+.intro {
+	margin: 40px auto 40px auto;
+}
+
+strong {
+	font-weight: bold;
+}
+
+ul {
+	margin: 20px auto 20px 40px;
+	list-style: square;
+	line-height: 150%;
+}
+
+p {
+	margin: 20px auto 20px auto;
+	line-height: 180%;
+}
+
+.quote {
+	margin: 20px auto;
+
+	font-family: 'Abril Fatface', cursive;
+	font-size: 50px;
+	background-color: #444444;
+	color: white;
+	/*height: 150px;*/
+}
+
+.quotation_mark {
+	position:absolute;
+	margin-top: -10px;
+
+	font-size: 150px;
+	line-height: 100%;
+
+}
+
+.quote_text {
+	position: relative;
+
+	width: auto;
+	padding: 0;
+	margin: 0 auto 0 40px;
+	padding-top: 50px;
+	line-height: 110%;
+	padding-bottom: 45px;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: normal;
+	margin-top: 60px;
+}
+
+hr {
+	border-width: 2px;
+	border-style: solid;
+}
