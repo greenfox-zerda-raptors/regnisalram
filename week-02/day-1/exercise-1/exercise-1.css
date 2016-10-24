@@ -1,0 +1,21 @@
+body {
+    width: 250px;
+}
+
+.leftfloat {
+    float: left;
+    margin: 0 10px 15px 0;
+}
+
+.rightfloat {
+    float: right;
+    margin: 0 0 15px 10px;
+}
+
+p {
+    text-align: justify;
+}
+
+hr {
+    border: 1px solid black;
+}

@@ -1,0 +1,86 @@
+body {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.leftfloat {
+    float: left;
+    margin: 0 10px 15px 0;
+}
+
+.rightfloat {
+    float: right;
+    margin: 0 0 15px 10px;
+}
+
+p {
+    text-align: justify;
+    margin: 0;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+main {
+    position: relative;
+}
+
+.topbox {
+    margin: 0 auto;
+    display: block;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 240px;
+    position: absolute;
+    margin-top: -350px;
+    margin-left: 130px;
+    z-index: 1;
+    background-color: white;
+}
+
+.wow {
+    margin: 10px auto 10px 20px;
+    color: red;
+}
+
+.sth {
+    margin: 20px;
+}
+
+.buttons {
+    padding-right: 20px;
+}
+
+.buttons ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0 10px 0;
+}
+
+.buttons li {
+    flex-basis: auto;
+    background: RGBA(167, 167, 167, 1.00);
+    padding: 5px;
+    margin: 0 5px 0 5px;
+    border-radius: 10px;
+
+}
+
+.escape {
+    position: relative;;
+}
+
+.escape p {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    margin-top: -160px;
+    margin-left: 200px;
+}
