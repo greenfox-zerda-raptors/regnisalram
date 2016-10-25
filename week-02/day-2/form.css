@@ -1,0 +1,122 @@
+/* Reset */
+div, p, a, img, ul,
+li, b, i, h1, h2, h3,
+h4, h5, h6 {
+
+	border:none;
+	text-decoration:none;
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+
+}
+
+body {
+    width: 820px;
+    margin: 0 auto;
+}
+
+form {
+    background-color: RGBA(221, 214, 204, 1.00);
+    padding: 50px 80px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    color: RGBA(77, 62, 98, 1.00);
+    font-size: 24px;
+}
+
+h1 {
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxes h2 {
+    font-size: 20px;
+    color: white;
+    background-color: RGBA(149, 138, 151, 1.00);
+    font-weight: lighter;
+    border-radius: 3px;
+    padding: 10px 20px;
+}
+
+.left-box, .right-box {
+    width: 320px;
+}
+
+.left-box {
+
+}
+
+.right-box {
+
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+sup {
+    vertical-align: text-top;
+    color: RGBA(236, 58, 75, 1.00);
+}
+
+input {
+    width: 296px;
+    font-size: 14px;
+    border: 1px solid RGBA(149, 138, 151, 1.00);
+    border-radius: 3px;
+    border-top: 2px inset RGBA(149, 138, 151, 0.5);
+    padding: 10px;
+}
+
+input[type="file"], input[type="submit"], input[type="reset"]{
+    display: none;
+}
+
+.birthdata {
+    display: flex;
+}
+
+.birthyear {
+    width: 160px;
+}
+
+.gender {
+    width: 150px;
+    padding-right: 1px;
+}
+
+.birthyear input {
+    width: 70px;
+}
+
+.gender-radio {
+    display: flex;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.brand-list {
+    display: flex;
+    font-size: 14px;
+}
+.checkbox-left, .checkbox-right {
+    width: 160px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+}
+
+button{
+    text-transform: uppercase;
+}

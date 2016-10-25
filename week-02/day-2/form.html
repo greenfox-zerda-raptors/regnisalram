@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <meta charset="utf-8">
+
+</head>
+
+    <body>
+    <form action="" method="post">
+        <h1>Profil</h1>
+        <div class="boxes">
+            <div class="left-box">
+                <h2>Szem&#233;lyes adatok</h2>
+                <div>
+                    <label for="name"><h3>N&#233;v <sup>*</sup></h3></label>
+                    <input type="text" id="name" name="user_name" required/>
+                </div>
+                <div class="birthdata">
+                <div class="birthyear">
+                    <label for="birthyear"><h3>Sz&#252;let&#233;si &#233;ved</h3></label>
+                    <input type="text" id="birthyear" name="user_birthdate" placeholder="pl. 1984"/>
+                </div>
+                <div class="gender">
+                    <h3>Nemed</h3>
+                    <div class="gender-radio">
+                    <input type="radio" id="female" name="gender" value="male"/>
+                        <label for="female">n&#x151;</label>
+                    <input type="radio" id="male" name="gender" value="female"  />
+                        <label for="male">f&#233;rfi</label>
+                    <input type="radio" id="other" name="gender" value="other"  />
+                        <label for="other">m&#225;s</label>
+                    </div>
+                </div>
+                </div> <!-- birthdata -->
+                <div>
+                    <h3>Milyen m&#225;rk&#225;kat szeretsz?</h3>
+                    <div class="brand-list">
+                    <div class="checkbox-left">
+                        <input type="checkbox" id="adidas" name="brand1" value="adidas" />
+                            <label for="adidas">Adidas</label><br />
+                        <input type="checkbox" id="apple" name="brand2" value="apple" />
+                            <label for="apple">Apple</label><br />
+                        <input type="checkbox" id="pepsi" name="brand3" value="pepsi" />
+                            <label for="pepsi">Pepsi</label><br />
+                        <input type="checkbox" id="mazda" name="brand4" value="mazda" />
+                            <label for="mazda">Mazda</label><br />
+                        <input type="checkbox" id="nike" name="brand5" value="nike" />
+                            <label for="nike">Nike</label><br />
+                    </div> <!-- checkbox-left -->
+                    <div class="checkbox-right">
+                        <input type="checkbox" id="opel" name="brand6" value="opel" />
+                            <label for="opel">Opel</label><br />
+                        <input type="checkbox" id="rayban" name="brand7" value="rayban" />
+                            <label for="rayban">Ray-Ban</label><br />
+                        <input type="checkbox" id="sbux" name="brand8" value="sbux" />
+                            <label for="sbux">Starbucks</label><br />
+                        <input type="checkbox" id="tesla" name="brand9" value="tesla" />
+                            <label for="tesla">Tesla</label><br />
+                        <input type="checkbox" id="yahoo" name="brand10" value="yahoo" />
+                            <label for="yahoo">Yahoo</label><br />
+                    </div> <!-- checkbox-right -->
+                </div> <!-- brand-list -->
+                <p>
+                    Tobbet is valaszthatsz!
+                </p>
+                </div>
+
+            </div> <!-- left-box -->
+            <div class="right-box">
+                <h2>Kapcsolat</h2>
+                <div>
+                    <label for="phone"><h3>Telefonsz&#225;m <sup>*</sup></h3></label>
+                    <input type="text" id="phone" name="phone_number" placeholder="+36 -- --- ----" required/>
+                </div>
+                <div>
+                    <label for="email"><h3>E-mail c&#237;m <sup>*</sup></h3></label>
+                    <input type="email" id="email" name="user_email" placeholder="nev@domain.hu" required/>
+                </div>
+                <div>
+                    <label for="fb"><h3>Facebook profilod</h3></label>
+                    <input type="text" id="fb" name="fb_profile" placeholder="http://facebook.com/..."/>
+                </div>
+                <div>
+                    <label for="twitter"><h3>Twitter profilod</h3></label>
+                    <input type="text" id="twitter" name="twitter_profile" placeholder="http://twitter.com/..."/>
+                </div>
+                <div>
+                    <label for="house"><h3>Milyen h&#225;zban laksz?</h3></label>
+                    <select id="house" name="house">
+                        <option selected disabled>V&#225;lassz t&#237;pust!</option>
+                        <option value="csaladi">csal&#225;di h&#225;z</option>
+                        <option value="lakas">lak&#225;s</option>
+                        <option value="lakresz">lakr&#233;sz</option>
+                        <option value="egyeb">egy&#233;b</option>
+                    </select>
+                </div>
+
+            </div> <!-- right-box -->
+        </div> <!-- boxes -->
+        <div class="intro">
+            <label for="introduction"><h3>Bemutatkoz&#225;s <sup>*</sup></h3></label>
+            <textarea id="introduction" name="introduction" placeholder="&#205;rj magadr&#243;l p&#225;r mondatot!"></textarea>
+        </div>
+        <div class="cv">
+            <h3>CV felt&#246;lt&#233;se</h3>
+            <button><label for="fileToUpload" id="custom-upload">File kiv&#225;laszt&#225;sa</label></button>
+            <input type="file" id="fileToUpload" name="fileToUpload">
+        </div> <!-- cv -->
+        <div>
+            <input type="checkbox" id="terms-and-cond" name="term-and-cond" value="agree" required/>
+                <label for="terms-and-cond">Elfogadom a <a href="">felhaszn&#225;l&#225;si felt&#233;teleket</a></label>
+        </div>
+        <div class="buttons">
+            <div class="submit">
+                <button><label for="submit" id="custom-submit">Ment&#233;s</label></button>
+                <input type="submit" id="submit" value="Submit">
+            </div>
+            <div class="reset">
+                <button><label for="reset" id="custom-reset">&#x170;rlap t&#246;rl&#233;se</label></button>
+                <input type="reset" id="reset">
+            </div>
+        </div> <!-- buttons -->
+    </form>
+    </body>
+
+</html>
