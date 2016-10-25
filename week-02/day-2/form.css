@@ -107,7 +107,9 @@ input[type="file"], input[type="submit"], input[type="reset"]{
 
 .brand-list {
     display: flex;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.5em;
+
 }
 .checkbox-left, .checkbox-right {
     width: 160px;
@@ -116,7 +118,15 @@ input[type="file"], input[type="submit"], input[type="reset"]{
 input[type="checkbox"] {
     width: 20px;
 }
+.brands {
 
+}
+
+.brands p {
+    font-size: 14px;
+    color: RGBA(159, 156, 152, 1.00);
+    padding: 20px 0;
+}
 button{
     text-transform: uppercase;
 }
