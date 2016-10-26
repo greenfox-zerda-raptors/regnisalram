@@ -22,6 +22,10 @@ button {
 
 }
 
+button:hover {
+    box-shadow: 4px 4px 2px RGBA(210, 224, 232, 1.00);
+}
+
 .white-button {
     color: RGBA(102, 102, 102, 1.00);
     background: linear-gradient(RGBA(251, 251, 251, 1.00),RGBA(225, 225, 225, 1.00));
