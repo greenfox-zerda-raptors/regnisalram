@@ -6,6 +6,20 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #0645ad;
+}
+
+a:visited {
+    color: #0b0080;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
 aside {
     width: 160px;
     background-color: RGBA(246, 246, 246, 1.00);
@@ -21,27 +35,39 @@ aside img {
     max-width: 140px;
 }
 
-.navigation {
-    padding: 4px 0 4px 0;
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation ul{
+    padding: 2px 0 2px 0;
     margin: 0 10px;
 }
-.navigation a {
+.navigation ul li a{
     display: block;
     padding: 3px;
-    text-decoration: none;
-    color: #0645ad;
-}
-
-.navigation a:visited {
-    color: #0b0080;
-}
-
-.navigation a:hover {
-    text-decoration: underline;
 }
 
 hr {
     border: 0.5px solid RGBA(216, 216, 216, 1.00);
+}
+
+.regular {
+    padding-left: 5px;
+}
+
+.regular h4{
+    font-weight: normal;
+    margin: 2px auto;
+}
+
+.regular ul {
+    padding-left: 4px;
+}
+
+.wikimedia ul {
+    margin-right: 0;
 }
 
 .right-box {
@@ -50,18 +76,97 @@ hr {
 
 header {
     display: block;
+    padding: 5px 0 0 0;
 
+    font-size: 0.75em;
+
+}
+
+.log-in ul {
+    display: flex;
+    margin: 0 0 10px 0;
+    padding: 0 15px 0 0;
+
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.log-in ul li {
+    margin: 6px 0 0 9px;
+}
+
+.log-in ul:nth-child(1) li {
+    color: RGBA(125, 112, 112, 1.00);
+}
+
+.edit {
+    display: flex;
+    justify-content: space-between;
+
+
+    background: linear-gradient(white,RGBA(246, 246, 246, 1.00));
+}
+
+.left-edit, .right-edit{
+    display: flex;
+
+    margin: 0;
+}
+
+.left-edit li, .right-edit li {
+    height: auto;
+    margin: 0;
+
+    padding: 16px 6px 6px 6px;
+
+    border-color: RGBA(167, 215, 249, 1.00);
+    border-style: solid;
+
+    border-width: 0 0 0 1px;
+
+    background: linear-gradient(white,RGBA(232, 242, 248, 1.00));
+}
+
+.left-edit li:nth-child(2) {
+    border-width: 0 1px 0 1px;
+}
+
+li.searchbar {
+    background: none;
+    padding-right: 15px;
+}
+
+li.searchbar input[type="search"] {
+    width: 230px;
+    margin-top: -10px;
+    font-size: 1.5em;
 }
 
 main {
     margin: 0;
     border: 1px solid RGBA(167, 215, 249, 1.00);
     border-right: 0;
-}
 
-p {
+    padding: 20px 24px 24px 24px;
 }
 
 h1 {
+    margin: 0 0 7px 0;
+
     font-family: "Linux Libertine", Georgia, Times, serif;
+    font-weight: lighter;
+    font-size: 1.8em;
+
+    border-bottom: 1px solid RGBA(170, 170, 170, 1.00);
+}
+
+.content {
+    margin: 0;
+
+    line-height: 1.6;
+    font-size: 0.875em;
+}
+
+footer {
+    background-color: RGBA(246, 246, 246, 1.00);
 }
