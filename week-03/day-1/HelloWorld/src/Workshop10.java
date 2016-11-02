@@ -6,7 +6,7 @@ public class Workshop10{
         int j1 = 10;
         int j2 = 3;
         // tell if j1 is between j2 squared and j2 cubed
-        boolean isBetween = Math.sqrt(j2) < j1 && j1 < j2*j2;
+        boolean isBetween = Math.pow(j2, 2) < j1 && j1 < Math.pow(j2, 3);
         System.out.println(isBetween);
     }
 }
