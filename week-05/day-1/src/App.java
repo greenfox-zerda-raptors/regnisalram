@@ -9,7 +9,6 @@ public class App {
         Car myCar = new Car();
 
         myCar.setKmOdometer(12312);
-        myCar.setTypecar("Mazda");
 
         Car myCar2 = new Car();
 
@@ -25,6 +24,12 @@ public class App {
         myCar3.setSizeEngine(2800);
         myCar3.setKmOdometer(42521);
 
+        Car myCar05 = new Car("Opel", "white", 1400, 25);
+
+        Car myCar06 = new Car("VW", "grey");
+
+        Car myCar07 = new Car(1100, 15);
+
         System.out.printf("Just got a new Car, it's %s and has a %d cc Engine!\n",
                 myCar.getColor(), myCar.getSizeEngine());
 
@@ -39,5 +44,11 @@ public class App {
         myCar3.drive(49);
 
         System.out.println(myCar3.toString());
+
+        System.out.println(myCar05.toString());
+
+        System.out.println(myCar06.toString());
+
+        System.out.println(myCar07.toString());
     }
 }
