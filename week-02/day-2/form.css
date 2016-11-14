@@ -34,9 +34,11 @@ h1 {
 .boxes {
     display: flex;
     justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .boxes h2 {
+	width: 280px;
     font-size: 20px;
     color: white;
     background-color: RGBA(149, 138, 151, 1.00);
@@ -46,11 +48,13 @@ h1 {
 }
 
 .left-box, .right-box {
-    width: 320px;
+    min-width: 320px;
+	flex-grow: 1;
+
 }
 
 .left-box {
-
+	margin-right: 20px;
 }
 
 .right-box {
@@ -112,12 +116,13 @@ input[type="file"], input[type="submit"], input[type="reset"]{
 
 }
 .checkbox-left, .checkbox-right {
-    width: 160px;
+    flex-grow: 1;
 }
 
 input[type="checkbox"] {
     width: 20px;
 }
+
 .brands {
 
 }
