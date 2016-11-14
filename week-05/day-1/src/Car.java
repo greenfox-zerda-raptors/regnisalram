@@ -23,7 +23,11 @@ public class Car {
         } else {
             System.out.printf("whee, %s did %d clicks.\n", this.typecar, clicks);
         }
+    }
 
+    public String toString() {
+        return String.format("This %s is %s, has %d cc engine and clocked %d km's.\n",
+                this.getTypecar(), this.getColor(), this.getSizeEngine(), this.getKmOdometer());
     }
 
     public int getSizeEngine() {

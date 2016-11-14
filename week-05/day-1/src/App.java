@@ -1,3 +1,5 @@
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 /**
  * Created by regnisalram on 11/14/16.
  */
@@ -28,17 +30,14 @@ public class App {
 
         myCar.drive(15);
 
-        System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
-                myCar.getTypecar(), myCar.getColor(), myCar.getSizeEngine(), myCar.getKmOdometer());
+        System.out.println(myCar.toString());
 
         myCar2.drive(1200);
 
-        System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
-                myCar2.getTypecar(), myCar2.getColor(), myCar2.getSizeEngine(), myCar2.getKmOdometer());
+        System.out.println(myCar2.toString());
 
         myCar3.drive(49);
-        
-        System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
-                myCar3.getTypecar(), myCar3.getColor(), myCar3.getSizeEngine(), myCar3.getKmOdometer());
+
+        System.out.println(myCar3.toString());
     }
 }
