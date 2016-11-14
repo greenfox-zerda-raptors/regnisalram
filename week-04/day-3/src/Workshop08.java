@@ -20,8 +20,40 @@ import java.util.*;
 
 public class Workshop08{
 
-    static void myMethod(int inNumber) throws Exception// something should appear here before (see Workshop07)
+    static void myMethod(int inNumber) throws Exception { // something should appear here before (see Workshop07)
+        System.out.println("start - myMethod");
+        if (inNumber == 7) {
+            throw new Exception("You can't possibly think 7 is a valid number...");
+        }
+    }
 
-    public static void main(String  args[]) // see Workshop07
+    public static void main(String  args[]) { // see Workshop07
+        Scanner userInput = new Scanner(System.in);
+        int myValue;
+        String prompt = "Enter a value from 1 to 9 or 0 to exit?";
 
+        System.out.println(prompt);
+        while (userInput.hasNextInt()) {
+            myValue = userInput.nextInt();
+            if (myValue == 0) {
+                break;
+            } else {
+                try {
+                    System.out.println("try - first statement");
+                    myMethod(myValue);
+                   // System.out.println("start - myMethod");
+                } catch (Exception ex) {
+                    System.out.println("An Exception occurred: " + ex.getMessage());
+                } finally {
+                    if (myValue == 0) {
+                        System.out.println("Finally I did this");
+                    } else {
+                        System.out.println("Not done just yet!");
+                    }
+
+                }
+            }
+        }
+        System.out.println("::::FINISH LINE::::");
+    }
 }

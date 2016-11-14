@@ -31,7 +31,7 @@ public class Workshop07{
     static void myMethod(int inNumber) throws Exception // something should appear here before
     {
         if (inNumber == 7) // do that thing that chucks the reprobate out
-            throw new Exception();// something here
+            throw new Exception("You can't possibly think 7 is a valid number...");// something here
 
         System.out.println("Nice number"); //changed a few things here, I think it's more logical
     }
@@ -54,7 +54,7 @@ public class Workshop07{
 //                    System.out.println("try - last statement");
                 } catch (Exception ex) {
                     System.out.println("An Exception occurred: " + ex.getMessage());
-                    System.out.println("You can't possibly think 7 is a valid number...");
+//                    System.out.println("You can't possibly think 7 is a valid number...");
                 }
             }
         } //while
