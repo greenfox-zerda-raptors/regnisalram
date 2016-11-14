@@ -10,22 +10,15 @@ public class Car {
     private int kmOdometer;
 
     public Car() {
-        this.typecar = "Mazda";
-        this.color = "red";
-        this.sizeEngine = 1600;
-        this.kmOdometer = 10;
+        this("Mazda", "red", 1600, 10);
     }
 
     public Car(String typecar, String color) {
-        this();
-        this.typecar = typecar;
-        this.color = color;
+        this(typecar, color, 1600, 10);
     }
 
     public Car(int sizeEngine, int kmOdometer) {
-        this();
-        this.sizeEngine = sizeEngine;
-        this.kmOdometer = kmOdometer;
+        this("Mazda", "red", sizeEngine, kmOdometer);
     }
 
     public Car(String typecar, String color, int sizeEngine, int kmOdometer) {
