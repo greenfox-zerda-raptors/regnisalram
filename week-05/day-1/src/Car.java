@@ -6,6 +6,8 @@ public class Car {
     //Add somethings here to create a car and some fields
     int sizeEngine;
     String color;
+    String typecar;
+    int kmOdometer;
 
     Car() {
         this.sizeEngine = 1600;
@@ -18,6 +20,14 @@ public class Car {
 
     String getColor() {
         return color;
+    }
+
+    String getTypecar() {
+        return typecar;
+    }
+
+    int getKmOdometer() {
+        return kmOdometer;
     }
 
     public static void main(String[] args) {
