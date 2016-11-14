@@ -4,30 +4,46 @@
 // Car.java
 public class Car {
     //Add somethings here to create a car and some fields
-    int sizeEngine;
-    String color;
-    String typecar;
-    int kmOdometer;
+    private int sizeEngine;
+    private String color;
+    private String typecar;
+    private int kmOdometer;
 
-    Car() {
+    public Car() {
         this.sizeEngine = 1600;
         this.color = "red";
     }
 
-    int getSizeEngine() {
+    public int getSizeEngine() {
         return sizeEngine;
     }
 
-    String getColor() {
+    public void setSizeEngine(int sizeEngine) {
+        this.sizeEngine = sizeEngine;
+    }
+
+    public String getColor() {
         return color;
     }
 
-    String getTypecar() {
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTypecar() {
         return typecar;
     }
 
-    int getKmOdometer() {
+    public void setTypecar(String typecar) {
+        this.typecar = typecar;
+    }
+
+    public int getKmOdometer() {
         return kmOdometer;
+    }
+
+    public void setKmOdometer(int kmOdometer) {
+        this.kmOdometer = kmOdometer;
     }
 
     public static void main(String[] args) {

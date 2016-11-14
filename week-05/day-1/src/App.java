@@ -6,22 +6,22 @@ public class App {
     public static void main(String[] args){
         Car myCar = new Car();
 
-        myCar.kmOdometer = 12312;
-        myCar.typecar = "Mazda";
+        myCar.setKmOdometer(12312);
+        myCar.setTypecar("Mazda");
 
         Car myCar2 = new Car();
 
-        myCar2.typecar = "Ford";
-        myCar2.color = "silver";
-        myCar2.sizeEngine = 2500;
-        myCar2.kmOdometer = 152312;
+        myCar2.setTypecar("Ford");
+        myCar2.setColor("silver");
+        myCar2.setSizeEngine(2500);
+        myCar2.setKmOdometer(152312);
 
         Car myCar3 = new Car();
-        
-        myCar3.typecar = "Beamer";
-        myCar3.color = "green";
-        myCar3.sizeEngine = 2800;
-        myCar3.kmOdometer = 42521;
+
+        myCar3.setTypecar("Beamer");
+        myCar3.setColor("green");
+        myCar3.setSizeEngine(2800);
+        myCar3.setKmOdometer(42521);
 
         System.out.printf("Just got a new Car, it's %s and has a %d cc Engine!\n",
                 myCar.getColor(), myCar.getSizeEngine());
