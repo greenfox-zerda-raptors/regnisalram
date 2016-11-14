@@ -26,12 +26,18 @@ public class App {
         System.out.printf("Just got a new Car, it's %s and has a %d cc Engine!\n",
                 myCar.getColor(), myCar.getSizeEngine());
 
+        myCar.drive(15);
+
         System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
                 myCar.getTypecar(), myCar.getColor(), myCar.getSizeEngine(), myCar.getKmOdometer());
+
+        myCar2.drive(1200);
 
         System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
                 myCar2.getTypecar(), myCar2.getColor(), myCar2.getSizeEngine(), myCar2.getKmOdometer());
 
+        myCar3.drive(49);
+        
         System.out.printf("This %s is %s, has %d cc engine and clocked %d km's.\n",
                 myCar3.getTypecar(), myCar3.getColor(), myCar3.getSizeEngine(), myCar3.getKmOdometer());
     }

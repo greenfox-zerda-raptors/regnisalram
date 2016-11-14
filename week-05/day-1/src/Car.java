@@ -14,6 +14,18 @@ public class Car {
         this.color = "red";
     }
 
+    void drive(int clicks) {
+        this.setKmOdometer(this.getKmOdometer() + clicks);
+        if (clicks < 20) {
+            System.out.printf("brrm, %s just drove around town %d clicks.\n", this.typecar, clicks);
+        } else if (clicks < 50) {
+            System.out.printf("brrm, screech, brrm, screech; %s commuted %d clicks.\n", this.typecar, clicks);
+        } else {
+            System.out.printf("whee, %s did %d clicks.\n", this.typecar, clicks);
+        }
+
+    }
+
     public int getSizeEngine() {
         return sizeEngine;
     }
