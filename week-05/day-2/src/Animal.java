@@ -10,4 +10,12 @@ public class Animal {
         System.out.println("Animal is eating");
     }
 
+    public Animal() {
+        System.out.println("Animal is created");
+    }
+
+    public Animal (String type){
+        System.out.println("Animal is created");
+    }
+
 }
