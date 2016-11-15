@@ -16,7 +16,6 @@ public class Student extends Person {
     public void addGrade(int grade) {
         if (0 < grade && grade < 6)
             grades.add(grade);
-
     }
 
     public float getAverage() {
