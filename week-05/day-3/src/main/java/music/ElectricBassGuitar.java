@@ -14,7 +14,7 @@ public class ElectricBassGuitar extends StringedInstrument{
     }
 
     public void play() {
-        System.out.printf(formatForPlay, this.name, this.numberOfStrings, "Duum-duum-duum");
+        System.out.printf(formatForPlay, name, numberOfStrings, "Duum-duum-duum");
     }
 
 }

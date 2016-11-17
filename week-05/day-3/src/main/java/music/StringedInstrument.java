@@ -5,10 +5,9 @@ package main.java.music;
  */
 abstract public class StringedInstrument extends Instrument{
 
-    public int numberOfStrings;
+    protected int numberOfStrings;
 
     final String formatForPlay = "%s, a %d-stringed instrument that %s\n";
-
 
     public StringedInstrument() {
         super();
