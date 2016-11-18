@@ -1,7 +1,6 @@
 package regnisalram;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * Created by regnisalram on 11/17/16.
@@ -10,11 +9,8 @@ public class UserInput {
 
     TodoList list = new TodoList();
 
-    Scanner input = new Scanner(System.in);
-
     public boolean userInput(String answer) {
         String[] answers = answer.split("\\s+", 2);
-        String message;
         if (answers[0].equals("list")) {
             if (list.toDoList.size() > 0) {
                 System.out.println(list);
@@ -24,18 +20,22 @@ public class UserInput {
         } else if (answers[0].equals("add")) {
             if (answers.length > 1) {
                 TodoItem newItem = new TodoItem(answers[1]);
-                list.writeNewItem(newItem);
+                list.addNewItem(newItem);
             } else {
                 System.out.println("Unable to add: No task is provided");
             }
+        } else if (answers[0].equals("remove")){
+            if (answers.length > 1) {
+                list.remove(answers[1]);
+            } else {
+                System.out.println("Unable to remove: No index is provided");
+            }
+        } else if (answers[0].equals("complete")){
 
-        } else if (answer.equals("remove")){
-
-        } else if (answer.equals("complete")){
-
-        } else if (answer.equals("help")){
+        } else if (answers[0].equals("help")){
             readHelpList();
         } else if (answers[0].equals("end")){
+            list.writeFile();
             return false;
         }
         return true;

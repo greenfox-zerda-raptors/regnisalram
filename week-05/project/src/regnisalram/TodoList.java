@@ -26,9 +26,22 @@ public class TodoList {
     }
     }
 
-    public void writeNewItem(TodoItem newItem) {
+    public void addNewItem(TodoItem newItem) {
         toDoList.add(newItem);
     }
+
+    public void remove(String answer) {
+        try {
+            toDoList.remove(Integer.parseInt(answer)-1);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Unable to remove: Index is out of bound");
+        } catch (NumberFormatException e) {
+            System.out.println("Unable to remove: Index is not a number");
+        }
+
+    }
+
+
 
     @Override
     public String toString() {
@@ -38,4 +51,19 @@ public class TodoList {
         return out;
     }
 
+    public void writeFile() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/regnisalram/greenfox/regnisalram/week-05/project/todofiles/todolist.txt"))) {
+            for (TodoItem listItem : toDoList) {
+                bw.write(String.valueOf(listItem));
+                bw.newLine();
+            }
+
+            bw.flush();
+            bw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
