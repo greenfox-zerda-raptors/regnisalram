@@ -41,8 +41,6 @@ public class TodoList {
 
     }
 
-
-
     @Override
     public String toString() {
         String out = "";

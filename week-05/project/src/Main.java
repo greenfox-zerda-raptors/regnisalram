@@ -11,6 +11,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         UserInput userInput = new UserInput();
 
+        System.out.print("CLI Todo application\n====================\n");
         userInput.readHelpList();
         while (userInput.userInput(input.nextLine())) {
         }

@@ -37,6 +37,9 @@ public class UserInput {
         } else if (answers[0].equals("end")){
             list.writeFile();
             return false;
+        } else {
+            System.out.println("Unsupported argument");
+            readHelpList();
         }
         return true;
     }
