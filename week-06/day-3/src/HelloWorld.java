@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by regnisalram on 11/23/16.
@@ -20,8 +21,17 @@ public class HelloWorld extends JFrame{
 
         this.setTitle("Main Frame Title Goes Here");
         this.setVisible(true);
-        this.setSize(300, 300);
+        this.setSize(400, 400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
+//        this.setLocationRelativeTo(null); good but more useful solution:
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension dimension = tk.getScreenSize();
+
+        int xPos = (dimension.width/2 - this.getWidth()/2);
+        int yPos = (dimension.height/2 - this.getHeight()/2);
+
+        this.setLocation(xPos, yPos);
 
         panel = new JPanel();
         this.add(panel);
