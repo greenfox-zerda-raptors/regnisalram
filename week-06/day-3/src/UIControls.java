@@ -11,7 +11,9 @@ public class UIControls extends JFrame implements ActionListener {
     private JPanel panel;
     private JTextField textField;
     private JLabel input, memory;
+    private JButton delete;
     static String inputLabelText = "Last entered text: ";
+    static String memoryLabelText = "Everything so far: ";
 
     public static void main(String[] args) {
 
@@ -31,17 +33,26 @@ public class UIControls extends JFrame implements ActionListener {
         textField.addActionListener(this);
         panel.add(textField);
 
+        textField.setBorder(BorderFactory.createLineBorder(Color.black));
+        textField.setBackground(Color.pink);
+        textField.setMaximumSize(new Dimension(this.getWidth(), 30));
+
         input = new JLabel(inputLabelText);
-        memory = new JLabel("Everything so far: ");
+        memory = new JLabel(memoryLabelText);
         panel.add(input);
         panel.add(memory);
+
+        delete = new JButton("Delete memory");
+        delete.addActionListener(this);
+        delete.setEnabled(false);
+        panel.add(delete);
     }
 
     public void setUpPanel() {
 
         this.setTitle("UI Controls");
         this.setVisible(true);
-        this.setSize(400, 100);
+        this.setSize(400, 400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
 
@@ -55,13 +66,22 @@ public class UIControls extends JFrame implements ActionListener {
 
         panel = new JPanel();
         this.add(panel);
+
+        Box.createRigidArea(new Dimension(0, 20));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String textFromField = textField.getText();
-        input.setText(inputLabelText + textFromField);
-        memory.setText(memory.getText() + textFromField + ", ");
-        textField.setText("");
+        if (e.getSource().equals(textField)) {
+            String textFromField = textField.getText();
+            input.setText(inputLabelText + textFromField);
+            memory.setText(memory.getText() + textFromField + ", ");
+            delete.setEnabled(true);
+            textField.setText("");
+        } else if (e.getSource().equals(delete)) {
+            memory.setText(memoryLabelText);
+            delete.setEnabled(false);
+        }
     }
 }
