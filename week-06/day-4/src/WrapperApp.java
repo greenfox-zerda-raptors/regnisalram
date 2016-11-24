@@ -26,6 +26,9 @@ public class WrapperApp extends JFrame implements ActionListener {
 
         setUpPanel();
 
+        panel = new ImagePanel();
+        this.add(panel);
+
         menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
@@ -57,10 +60,6 @@ public class WrapperApp extends JFrame implements ActionListener {
         int yPos = (dimension.height/2 - this.getHeight()/2);
 
         this.setLocation(xPos, yPos);
-
-        panel = new JPanel();
-        this.add(panel);
-
     }
 
     @Override
