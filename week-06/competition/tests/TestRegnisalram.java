@@ -1,3 +1,5 @@
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -6,39 +8,67 @@ import static org.junit.Assert.*;
  */
 public class TestRegnisalram {
 
-    @Test
-    public void countHowMany() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
-        assertEquals(3, wSource.countHowMany('a'));
+    private WordToolbox wSource;
+    private WordToolbox tarzanAndJane;
+
+    @Before
+    public void setUp() {
+        wSource = new WordToolbox("Tarzan's toenails");
+        tarzanAndJane = new WordToolbox("Me Tarzan, You Jane");
     }
 
     @Test
-    public void countHowMany2() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
+    public void countHowManyCharacter() throws Exception {
+        assertEquals(3, wSource.countHowMany('a'));
+        assertEquals(2, tarzanAndJane.countHowMany('e'));
+    }
+
+    @Test
+    public void countHowManyUppercase() throws Exception {
         assertEquals(2, wSource.countHowMany('T'));
     }
 
     @Test
-    public void countHowMany3() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
+    public void countHowManyLowercase() throws Exception {
         assertEquals(2, wSource.countHowMany('t'));
     }
 
     @Test
-    public void countHowMany4() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
+    public void countHowManyDoesNotHave() throws Exception {
         assertEquals(0, wSource.countHowMany('x'));
+        assertEquals(0, tarzanAndJane.countHowMany('x'));
     }
 
     @Test
-    public void countHowMany5() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
+    public void countHowManySpace() throws Exception {
         assertEquals(1, wSource.countHowMany(' '));
+        assertEquals(3, tarzanAndJane.countHowMany(' '));
     }
 
     @Test
-    public void countHowMany6() throws Exception {
-        WordToolbox wSource = new WordToolbox ("Tarzan's toenails");
+    public void countHowManyNothing() throws Exception {
         assertEquals(0, wSource.countHowMany('0'));
+        assertEquals(0, tarzanAndJane.countHowMany('0'));
+    }
+
+    @Ignore ("not ready yet")
+    @Test
+    public void isAnAnagram() throws Exception {
+
+    }
+
+    @Test
+    public void waitingItOut() throws Exception {
+
+    }
+
+    @Test
+    public void setS() throws Exception {
+
+    }
+
+    @Test
+    public void getS() throws Exception {
+
     }
 }
