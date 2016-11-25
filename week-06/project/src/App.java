@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 /**
  * Created by regnisalram on 11/25/16.
  */
-public class App extends JFrame implements ActionListener{
+public class App extends JFrame implements MouseListener {
 
     private JPanel panel;
     private ArrayList<Tile> tiles = new ArrayList<>();
@@ -33,7 +35,7 @@ public class App extends JFrame implements ActionListener{
 
         for (Tile tile : tiles) {
             panel.add(tile);
-
+            tile.addMouseListener(this);
         }
 
         setVisible(true);
@@ -59,7 +61,27 @@ public class App extends JFrame implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void mouseClicked(MouseEvent e) {
+        ((Tile) e.getSource()).switchRevealed();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }
