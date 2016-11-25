@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by regnisalram on 11/25/16.
@@ -13,6 +13,9 @@ public class App extends JFrame implements MouseListener {
 
     private JPanel panel;
     private ArrayList<Tile> tiles = new ArrayList<>();
+    int gameSize;
+    int revealedTiles = 0;
+    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -27,18 +30,35 @@ public class App extends JFrame implements MouseListener {
 
         setUpPanel();
 
-        panel.setLayout(new GridLayout(2, 2));
+        gameSize = 6;
 
-        for (int i = 0; i < 4; i++) {
-            tiles.add(new Tile());
+        panel.setLayout(new GridLayout(2, 0));
+
+        for (String gamePiece : getTilesType(gameSize)) {
+            tiles.add(new Tile(gamePiece));
+            tiles.add(new Tile(gamePiece));
         }
+
+        Collections.shuffle(tiles);
 
         for (Tile tile : tiles) {
             panel.add(tile);
             tile.addMouseListener(this);
         }
 
+        pack();
         setVisible(true);
+    }
+
+    private ArrayList<String> getTilesType(int gameSize) {
+        ArrayList<String> gamePieceFileNames = getImageFileNames();
+        Collections.shuffle(gamePieceFileNames);
+        ArrayList<String> tilesNeeded = new ArrayList<>();
+
+        for (int i = 0; i < gameSize; i++) {
+            tilesNeeded.add(gamePieceFileNames.get(i));
+        }
+        return tilesNeeded;
     }
 
     private void setUpPanel() {
@@ -60,9 +80,28 @@ public class App extends JFrame implements MouseListener {
         this.add(panel);
     }
 
+    private void checkMatch() {
+
+    }
+
+    private ArrayList<String> getImageFileNames() {
+        ArrayList<String> fileNames = new ArrayList<>();
+        File directory = new File("images/gamepieces");
+        for (String file : directory.list())  {
+            fileNames.add(file);
+        }
+        return fileNames;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        ((Tile) e.getSource()).switchRevealed();
+        if (revealedTiles < 2) {
+            ((Tile) e.getSource()).switchRevealed();
+            revealedTiles++;
+        } else if (revealedTiles == 2) {
+//            if (((Tile) e.getSource()).gamePieceName.equals())
+
+        }
     }
 
     @Override
