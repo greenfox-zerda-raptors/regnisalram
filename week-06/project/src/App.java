@@ -32,9 +32,9 @@ public class App extends JFrame implements MouseListener {
 
         setUpPanel();
 
-        gameSize = 4;
+        gameSize = 8;
 
-        panel.setLayout(new GridLayout(2, 0));
+        panel.setLayout(new GridLayout(4, 0));
 
         for (String gamePiece : getTilesType(gameSize)) {
             tiles.add(new Tile(gamePiece));
@@ -97,24 +97,23 @@ public class App extends JFrame implements MouseListener {
             } else if (revealedTiles == 2) {
                 if (firstRevealed.gamePieceName.equals(secondRevealed.gamePieceName)) {
                     System.out.println("these are the same");
-                    revealedTiles = 0;
+                    setCleanSlate(clicked);
                 } else {
                     System.out.println("wrong");
                     firstRevealed.switchRevealed();
                     secondRevealed.switchRevealed();
-                    revealedTiles = 0;
+                    setCleanSlate(clicked);
                 }
             }
         }
         isGameWon(tiles);
     }
 
-//    private void setCleanSlate(Tile clicked) {
-//        firstRevealed = null;
-//        secondRevealed = null;
-//        firstRevealed = clicked;
-//        clicked.switchRevealed();
-//    }
+    private void setCleanSlate(Tile clicked) {
+        firstRevealed = clicked;
+        firstRevealed.switchRevealed();
+        revealedTiles = 1;
+    }
     private void isGameWon (ArrayList<Tile> tiles) {
         int matchedTiles = 0;
         for (Tile tile : tiles) {
@@ -141,7 +140,7 @@ public class App extends JFrame implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         checkMatch((Tile) e.getSource());
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
 
