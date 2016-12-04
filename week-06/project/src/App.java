@@ -13,9 +13,8 @@ public class App extends JFrame implements MouseListener {
 
     private JPanel panel;
     private ArrayList<Tile> tiles = new ArrayList<>();
-    int gameSize;
+    int numberOfPairs;
     int revealedTiles = 0;
-    String fileNameToCheck;
     private Tile firstRevealed;
     private Tile secondRevealed;
 
@@ -30,13 +29,13 @@ public class App extends JFrame implements MouseListener {
 
     public App() {
 
+        numberOfPairs = DialogBox.infoBox();
+
         setUpPanel();
 
-        gameSize = 8;
+        panel.setLayout(new GridLayout(getNumberOfRows(), 0));
 
-        panel.setLayout(new GridLayout(4, 0));
-
-        for (String gamePiece : getTilesType(gameSize)) {
+        for (String gamePiece : getTilesType(numberOfPairs)) {
             tiles.add(new Tile(gamePiece));
             tiles.add(new Tile(gamePiece));
         }
@@ -48,8 +47,7 @@ public class App extends JFrame implements MouseListener {
             tile.addMouseListener(this);
         }
 
-        pack();
-        setVisible(true);
+        placePanel();
     }
 
     private ArrayList<String> getTilesType(int gameSize) {
@@ -66,10 +64,15 @@ public class App extends JFrame implements MouseListener {
     private void setUpPanel() {
 
         this.setTitle("Memory Game");
-        this.setSize(400, 400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        panel = new JPanel();
+        this.add(panel);
+    }
+
+    private void placePanel() {
+        pack();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dimension = tk.getScreenSize();
 
@@ -77,9 +80,7 @@ public class App extends JFrame implements MouseListener {
         int yPos = (dimension.height/2 - this.getHeight()/2);
 
         this.setLocation(xPos, yPos);
-
-        panel = new JPanel();
-        this.add(panel);
+        setVisible(true);
     }
 
     private void checkMatch(Tile clicked) {
@@ -99,7 +100,7 @@ public class App extends JFrame implements MouseListener {
                     System.out.println("these are the same");
                     setCleanSlate(clicked);
                 } else {
-                    System.out.println("wrong");
+                    System.out.println("nope");
                     firstRevealed.switchRevealed();
                     secondRevealed.switchRevealed();
                     setCleanSlate(clicked);
@@ -114,6 +115,7 @@ public class App extends JFrame implements MouseListener {
         firstRevealed.switchRevealed();
         revealedTiles = 1;
     }
+
     private void isGameWon (ArrayList<Tile> tiles) {
         int matchedTiles = 0;
         for (Tile tile : tiles) {
@@ -121,10 +123,39 @@ public class App extends JFrame implements MouseListener {
                 matchedTiles++;
             }
         }
-        if (matchedTiles == gameSize * 2) {
+        if (matchedTiles == numberOfPairs * 2) {
             System.out.println("you won!");
         }
 
+    }
+
+    private int getNumberOfRows() {
+        int rows = 0;
+        switch (numberOfPairs) {
+            case 2: rows = 2;
+                break;
+            case 3: rows = 2;
+                break;
+            case 4: rows = 2;
+                break;
+            case 5: rows = 2;
+                break;
+            case 6: rows = 3;
+                break;
+            case 7: rows = 2;
+                break;
+            case 8: rows = 4;
+                break;
+            case 9: rows = 3;
+                break;
+            case 10: rows = 4;
+                break;
+            case 11: rows = 2;
+                break;
+            case 12: rows = 4;
+                break;
+        }
+        return rows;
     }
 
     private ArrayList<String> getImageFileNames() {
