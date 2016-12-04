@@ -132,26 +132,18 @@ public class App extends JFrame implements MouseListener {
     private int getNumberOfRows() {
         int rows = 0;
         switch (numberOfPairs) {
-            case 2: rows = 2;
-                break;
-            case 3: rows = 2;
-                break;
-            case 4: rows = 2;
-                break;
-            case 5: rows = 2;
-                break;
-            case 6: rows = 3;
-                break;
-            case 7: rows = 2;
-                break;
-            case 8: rows = 4;
-                break;
-            case 9: rows = 3;
-                break;
-            case 10: rows = 4;
-                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 7:
             case 11: rows = 2;
                 break;
+            case 6:
+            case 9: rows = 3;
+                break;
+            case 8:
+            case 10:
             case 12: rows = 4;
                 break;
         }
