@@ -9,12 +9,14 @@ public class DialogBox extends JOptionPane {
 
     public static final Integer[] numberOfPairs = {2, 3, 4, 5, 6, 7, 8, 9, 10, 12};
 
+    static ImageIcon icon = new ImageIcon("images/totoro_icon.jpeg");
+
     public static int infoBox() {
         int gameSize = (int) JOptionPane.showInputDialog(panel,
-                "Hello there!\n Welcome to the game!\n How many pairs would you like to look for?",
+                "Hello there!\nWelcome to the game!\nHow many pairs would you like to look for?",
                 "Memory Game",
                 JOptionPane.QUESTION_MESSAGE,
-                null,
+                icon,
                 numberOfPairs,
                 numberOfPairs[0]);
         return gameSize;
