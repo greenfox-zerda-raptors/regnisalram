@@ -60,15 +60,18 @@ public class Board extends JComponent implements KeyListener{
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_UP:
+                hero.moveCharacter("images/hero-up.png", 0, -1);
                 // handle up
                 break;
             case KeyEvent.VK_DOWN:
                 hero.moveCharacter("images/hero-down.png", 0, 1);
                 break;
             case KeyEvent.VK_LEFT:
+                hero.moveCharacter("images/hero-left.png", -1, 0);
                 // handle left
                 break;
             case KeyEvent.VK_RIGHT:
+                hero.moveCharacter("images/hero-right.png", 1, 0);
                 // handle right
                 break;
         }
