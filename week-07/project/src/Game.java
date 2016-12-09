@@ -11,11 +11,13 @@ public class Game extends JComponent implements KeyListener{
 
     Hero hero;
     Map originalMap;
+    ArrayList<Skeleton> enemies;
 
     public Game() {
         addKeyListener(this);
 
         originalMap = new Map();
+        drawEnemies();
         hero = new Hero();
 
         setPreferredSize(new Dimension(720, 792));
@@ -23,9 +25,20 @@ public class Game extends JComponent implements KeyListener{
         setVisible(true);
     }
 
+    public void drawEnemies() {
+        enemies = new ArrayList<>();
+
+        enemies.add(new Skeleton(6, 0));
+        enemies.add(new Skeleton(2, 3));
+        enemies.add(new Skeleton(7, 10));
+    }
+
     @Override
     public void paint(Graphics graphics) {
         originalMap.draw(graphics);
+        for (Skeleton enemy : enemies) {
+            enemy.draw(graphics);
+        }
         hero.draw(graphics);
     }
 
