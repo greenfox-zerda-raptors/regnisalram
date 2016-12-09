@@ -11,7 +11,7 @@ public class Game extends JComponent implements KeyListener{
 
     Hero hero;
     Map originalMap;
-    ArrayList<Skeleton> enemies;
+    ArrayList<Character> enemies;
 
     public Game() {
         addKeyListener(this);
@@ -31,12 +31,14 @@ public class Game extends JComponent implements KeyListener{
         enemies.add(new Skeleton(6, 0));
         enemies.add(new Skeleton(2, 3));
         enemies.add(new Skeleton(7, 10));
+
+        enemies.add(new Boss(4, 10));
     }
 
     @Override
     public void paint(Graphics graphics) {
         originalMap.draw(graphics);
-        for (Skeleton enemy : enemies) {
+        for (Character enemy : enemies) {
             enemy.draw(graphics);
         }
         hero.draw(graphics);
