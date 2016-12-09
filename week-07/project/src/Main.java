@@ -17,7 +17,7 @@ public class Main extends JFrame {
 
     Main() {
         setUpFrame();
-        this.add(new Board());
+        this.add(new Game());
         setVisible(true);
     }
 
