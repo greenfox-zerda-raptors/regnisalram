@@ -29,6 +29,7 @@ public abstract class GameObject extends JComponent{
         }
     }
 
+    // position getters and setters
     public void setPosX(int posX) {
         this.posX = posX;
     }
