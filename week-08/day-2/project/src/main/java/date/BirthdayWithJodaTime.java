@@ -35,13 +35,15 @@ public class BirthdayWithJodaTime implements BirthdayCalculator<LocalDate> {
 
     @Override
     public int calculateAgeInYears(LocalDate birthday) {
-        // TODO - return how many years age the input date 'birthday' was
-        return -1;
+        // TODO - return how many years ago the input date 'birthday' was
+        LocalDate today = LocalDate.now();
+        return today.getYear() - birthday.getYear();
     }
 
     @Override
     public int calculateDaysToNextAnniversary(LocalDate date) {
         // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
+        LocalDate today = LocalDate.now();
         return -1;
     }
 
