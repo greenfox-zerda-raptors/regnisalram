@@ -17,10 +17,8 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
-            date = (Date) formatter.parse(str);
-        } catch (ParseException e) {
-
-        }
+            date = formatter.parse(str);
+        } catch (ParseException e) {}
         return date;
     }
 
@@ -28,21 +26,20 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
     public String printMonthAndDay(Date date) {
         // TODO - return the date formatted: month & day (MM. dd.)
         DateFormat formatter = new SimpleDateFormat("MM. dd.");
-        String monthAndDay = formatter.format(date);
-        return monthAndDay;
+        return formatter.format(date);
     }
 
     @Override
     public boolean isAnniversaryToday(Date date) {
         // TODO - return with true if today is the same month+day as date
-        Date dateToday = Calendar.getInstance().getTime();
-        String monthAndDateToday = printMonthAndDay(dateToday);
-        return (monthAndDateToday.equals(printMonthAndDay(date)));
+        Date dateToday = new Date();
+        return (printMonthAndDay(dateToday).equals(printMonthAndDay(date)));
     }
 
     @Override
     public int calculateAgeInYears(Date birthday) {
-        // TODO - return how many years age the input date 'birthday' was
+        // TODO - return how many years ago the input date 'birthday' was
+        
         return -1;
     }
 
