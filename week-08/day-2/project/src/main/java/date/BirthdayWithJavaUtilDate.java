@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import static com.sun.tools.javac.util.Constants.format;
 
@@ -67,7 +68,33 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
     @Override
     public int calculateDaysToNextAnniversary(Date date) {
         // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
-        return -1;
+        Calendar dateToday = Calendar.getInstance();
+        Calendar birthdayDate = Calendar.getInstance();
+        birthdayDate.setTime(date);
+
+        int yearToday = dateToday.get(Calendar.YEAR);
+
+        int monthToday = dateToday.get(Calendar.MONTH);
+        int monthBday = birthdayDate.get(Calendar.MONTH);
+
+        int dayToday = dateToday.get(Calendar.DAY_OF_MONTH);
+        int dayBday = birthdayDate.get(Calendar.DAY_OF_MONTH);
+
+        int days;
+        long diff;
+
+        birthdayDate.set(Calendar.YEAR, yearToday);
+
+        if (monthBday > monthToday || (monthBday == monthToday && dayBday > dayToday)) {
+        } else {
+            birthdayDate.set(Calendar.YEAR, yearToday + 1);
+        }
+
+        diff = birthdayDate.getTimeInMillis() - dateToday.getTimeInMillis();
+
+        days = (int) (diff / (24 * 60 * 60 * 1000L));
+
+        return days;
     }
 
     public static void main(String[] args) {
