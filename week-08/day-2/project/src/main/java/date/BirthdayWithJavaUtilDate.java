@@ -1,26 +1,43 @@
 package date;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+
+import static com.sun.tools.javac.util.Constants.format;
 
 public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> {
 
     @Override
     public Date parseDate(String str) {
         // TODO - return with the parsed date; format is: yyyy-MM-dd
-        return null;
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = (Date) formatter.parse(str);
+        } catch (ParseException e) {
+
+        }
+        return date;
     }
 
     @Override
     public String printMonthAndDay(Date date) {
         // TODO - return the date formatted: month & day (MM. dd.)
-        return null;
+        DateFormat formatter = new SimpleDateFormat("MM. dd.");
+        String monthAndDay = formatter.format(date);
+        return monthAndDay;
     }
 
     @Override
     public boolean isAnniversaryToday(Date date) {
         // TODO - return with true if today is the same month+day as date
-        return false;
+        Date dateToday = Calendar.getInstance().getTime();
+        String monthAndDateToday = printMonthAndDay(dateToday);
+        return (monthAndDateToday.equals(printMonthAndDay(date)));
     }
 
     @Override
