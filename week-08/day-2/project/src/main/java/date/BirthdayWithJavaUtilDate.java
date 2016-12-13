@@ -92,7 +92,7 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
 
         diff = birthdayDate.getTimeInMillis() - dateToday.getTimeInMillis();
 
-        days = (int) (diff / (24 * 60 * 60 * 1000L));
+        days = (int) TimeUnit.MILLISECONDS.toDays(diff);
 
         return days;
     }
