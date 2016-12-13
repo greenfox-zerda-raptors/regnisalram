@@ -39,8 +39,29 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
     @Override
     public int calculateAgeInYears(Date birthday) {
         // TODO - return how many years ago the input date 'birthday' was
-        
-        return -1;
+        Calendar dateToday = Calendar.getInstance();
+        Calendar birthdayDate = Calendar.getInstance();
+        birthdayDate.setTime(birthday);
+
+        int yearToday = dateToday.get(Calendar.YEAR);
+        int yearBday = birthdayDate.get(Calendar.YEAR);
+
+        int monthToday = dateToday.get(Calendar.MONTH);
+        int monthBday = birthdayDate.get(Calendar.MONTH);
+
+        int dayToday = dateToday.get(Calendar.DAY_OF_MONTH);
+        int dayBday = birthdayDate.get(Calendar.DAY_OF_MONTH);
+
+        int age = yearToday - yearBday;
+
+        if (monthToday > monthBday) {
+            age--;
+        } else if (monthToday == monthBday) {
+            if (dayBday > dayToday) {
+                age--;
+            }
+        }
+        return age;
     }
 
     @Override
