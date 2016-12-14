@@ -4,6 +4,7 @@
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
@@ -34,6 +35,11 @@ public class Workshop02 {
         }
 
         List<Account> accounts = accountDao.queryForAll();
+
+        QueryBuilder<Account, String> queryBuilder = accountDao.queryBuilder();
+        queryBuilder.orderBy("name", true);
+
+        accounts = queryBuilder.query();
 
         for (Account acc : accounts) {
             System.out.println("Account: " + acc.toString());
