@@ -1,0 +1,12 @@
+*.iml
+.gradle/*
+.idea/*
+build/*
+gradle/*
+src/main/resources
+src/test
+gradlew
+gradlew.bat
+settings.gradle
+
+out/*
