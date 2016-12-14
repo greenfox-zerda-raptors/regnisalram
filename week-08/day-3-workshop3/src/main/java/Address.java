@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Address {
 
     @DatabaseField(generatedId = true)
-    private int id;
+    private int addressID;
 
     @DatabaseField
     private String street;
@@ -31,6 +31,10 @@ public class Address {
         this.city = city;
         this.postcode = postcode;
         this.country = country;
+    }
+
+    public int getAddressID() {
+        return addressID;
     }
 
     public String getStreet() {
