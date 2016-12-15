@@ -1,6 +1,8 @@
 package lombok.animals;
 
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.extern.java.Log;
 import lombok.foods.HorseFood;
 
 import java.util.logging.Logger;
@@ -8,9 +10,8 @@ import java.util.logging.Logger;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true)
+@EqualsAndHashCode (callSuper = true) @ToString @Log
 public class Horse extends AbstractAnimal {
-    private static final Logger log = Logger.getLogger(Horse.class.getName());
 
     public Horse(String name, long weightInGram, double happiness) {
         super(name, weightInGram, happiness);
@@ -61,10 +62,6 @@ public class Horse extends AbstractAnimal {
 
         public Horse build() {
             return new Horse(this.name, this.weightInGram, this.happiness);
-        }
-
-        public String toString() {
-            return "Horse.HorseBuilder(name=" + this.name + ", weightInGram=" + this.weightInGram + ", happiness=" + this.happiness + ")";
         }
     }
 }

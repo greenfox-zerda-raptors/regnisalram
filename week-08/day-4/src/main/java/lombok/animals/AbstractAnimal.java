@@ -2,10 +2,7 @@ package lombok.animals;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.foods.Food;
 import org.joda.time.LocalDate;
 
@@ -14,7 +11,7 @@ import java.util.List;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@Getter @Setter @EqualsAndHashCode
+@Getter @Setter @EqualsAndHashCode @ToString
 public abstract class AbstractAnimal implements Animal {
     @Setter(AccessLevel.NONE)
     private String name;
@@ -52,14 +49,5 @@ public abstract class AbstractAnimal implements Animal {
 
     public Integer getChildrenNumber() {
         return this.children.size();
-    }
-
-    public String toString() {
-        return "AbstractAnimal(name=" + this.getName() +
-                ", birthDate=" + this.getBirthDate() +
-                ", children=" + this.getChildren() +
-                ", movedDistanceInMilliMeters=" + this.getMovedDistanceInMilliMeters() +
-                ", happiness=" + this.getHappiness() +
-                ", weightInGram=" + this.getWeightInGram() + ")";
     }
 }

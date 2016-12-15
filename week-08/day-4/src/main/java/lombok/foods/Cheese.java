@@ -1,11 +1,12 @@
 package lombok.foods;
 
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true)
+@EqualsAndHashCode (callSuper = true) @ToString
 public class Cheese extends AbstractFood {
     protected Cheese(Long weight, Long calories, Float qualityMultiplier) {
         super("Cheese", weight, calories, qualityMultiplier);
@@ -44,10 +45,6 @@ public class Cheese extends AbstractFood {
 
         public Cheese build() {
             return new Cheese(this.weight, this.calories, this.qualityMultiplier);
-        }
-
-        public String toString() {
-            return "Cheese.CheeseBuilder(weight=" + this.weight + ", calories=" + this.calories + ", qualityMultiplier=" + this.qualityMultiplier + ")";
         }
     }
 }
