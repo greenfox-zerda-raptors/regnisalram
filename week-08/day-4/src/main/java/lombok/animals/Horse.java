@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-
+@EqualsAndHashCode (callSuper = true)
 public class Horse extends AbstractAnimal {
     private static final Logger log = Logger.getLogger(Horse.class.getName());
 

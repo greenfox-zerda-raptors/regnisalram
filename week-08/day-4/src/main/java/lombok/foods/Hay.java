@@ -6,7 +6,7 @@ import org.joda.time.LocalDate;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode
+@EqualsAndHashCode (callSuper = true)
 public class Hay extends AbstractHorseFood {
     protected Hay(Long weight, Float qualityMultiplier, LocalDate expirationDate) {
         super("Hay", weight, Long.valueOf(weight.longValue() * 2L), qualityMultiplier, expirationDate);

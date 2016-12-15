@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode
+@EqualsAndHashCode (callSuper = true)
 public class Mouse extends AbstractAnimal {
     private static final Logger log = Logger.getLogger(Mouse.class.getName());
 

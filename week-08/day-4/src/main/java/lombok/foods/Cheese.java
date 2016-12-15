@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode
+@EqualsAndHashCode (callSuper = true)
 public class Cheese extends AbstractFood {
     protected Cheese(Long weight, Long calories, Float qualityMultiplier) {
         super("Cheese", weight, calories, qualityMultiplier);

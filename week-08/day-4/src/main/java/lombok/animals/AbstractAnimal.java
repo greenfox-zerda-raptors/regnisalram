@@ -55,6 +55,11 @@ public abstract class AbstractAnimal implements Animal {
     }
 
     public String toString() {
-        return "AbstractAnimal(name=" + this.getName() + ", birthDate=" + this.getBirthDate() + ", children=" + this.getChildren() + ", movedDistanceInMilliMeters=" + this.getMovedDistanceInMilliMeters() + ", happiness=" + this.getHappiness() + ", weightInGram=" + this.getWeightInGram() + ")";
+        return "AbstractAnimal(name=" + this.getName() +
+                ", birthDate=" + this.getBirthDate() +
+                ", children=" + this.getChildren() +
+                ", movedDistanceInMilliMeters=" + this.getMovedDistanceInMilliMeters() +
+                ", happiness=" + this.getHappiness() +
+                ", weightInGram=" + this.getWeightInGram() + ")";
     }
 }
