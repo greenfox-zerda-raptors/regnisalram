@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true) @ToString @Log
+@EqualsAndHashCode (callSuper = true) @ToString (callSuper = true) @Log
 public class Horse extends AbstractAnimal {
 
     public Horse(String name, long weightInGram, double happiness) {
@@ -31,10 +31,6 @@ public class Horse extends AbstractAnimal {
 
     public static Horse.HorseBuilder builder() {
         return new Horse.HorseBuilder();
-    }
-
-    public String toString() {
-        return "Horse(super=" + super.toString() + ")";
     }
 
     public static class HorseBuilder {
@@ -62,6 +58,10 @@ public class Horse extends AbstractAnimal {
 
         public Horse build() {
             return new Horse(this.name, this.weightInGram, this.happiness);
+        }
+
+        public String toString() {
+            return "Horse.HorseBuilder(name=" + this.name + ", weightInGram=" + this.weightInGram + ", happiness=" + this.happiness + ")";
         }
     }
 }

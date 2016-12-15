@@ -7,7 +7,7 @@ import org.joda.time.LocalDate;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true) @ToString
+@EqualsAndHashCode (callSuper = true) @ToString (callSuper = true)
 public class Hay extends AbstractHorseFood {
     protected Hay(Long weight, Float qualityMultiplier, LocalDate expirationDate) {
         super("Hay", weight, Long.valueOf(weight.longValue() * 2L), qualityMultiplier, expirationDate);
@@ -15,10 +15,6 @@ public class Hay extends AbstractHorseFood {
 
     public static Hay.HayBuilder builder() {
         return new Hay.HayBuilder();
-    }
-
-    public String toString() {
-        return "Hay(super=" + super.toString() + ")";
     }
 
     public static class HayBuilder {
@@ -46,6 +42,10 @@ public class Hay extends AbstractHorseFood {
 
         public Hay build() {
             return new Hay(this.weight, this.qualityMultiplier, this.expirationDate);
+        }
+
+        public String toString() {
+            return "Hay.HayBuilder(weight=" + this.weight + ", qualityMultiplier=" + this.qualityMultiplier + ", expirationDate=" + this.expirationDate + ")";
         }
     }
 }

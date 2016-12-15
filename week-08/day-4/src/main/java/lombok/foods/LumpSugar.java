@@ -7,7 +7,7 @@ import org.joda.time.LocalDate;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true) @ToString
+@EqualsAndHashCode (callSuper = true) @ToString (callSuper = true)
 public class LumpSugar extends AbstractHorseFood {
     protected LumpSugar(Long weight, Float qualityMultiplier, LocalDate expirationDate) {
         super("LumpSugar", weight, Long.valueOf(weight.longValue() * 13L), qualityMultiplier, expirationDate);
@@ -15,10 +15,6 @@ public class LumpSugar extends AbstractHorseFood {
 
     public static LumpSugar.LumpSugarBuilder builder() {
         return new LumpSugar.LumpSugarBuilder();
-    }
-
-    public String toString() {
-        return "LumpSugar(super=" + super.toString() + ")";
     }
 
     public static class LumpSugarBuilder {
@@ -46,6 +42,10 @@ public class LumpSugar extends AbstractHorseFood {
 
         public LumpSugar build() {
             return new LumpSugar(this.weight, this.qualityMultiplier, this.expirationDate);
+        }
+
+        public String toString() {
+            return "LumpSugar.LumpSugarBuilder(weight=" + this.weight + ", qualityMultiplier=" + this.qualityMultiplier + ", expirationDate=" + this.expirationDate + ")";
         }
     }
 }

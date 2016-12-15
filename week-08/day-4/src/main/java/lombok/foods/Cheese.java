@@ -6,7 +6,7 @@ import lombok.ToString;
 /**
  * Created by kicsen on 2016. 12. 12..
  */
-@EqualsAndHashCode (callSuper = true) @ToString
+@EqualsAndHashCode (callSuper = true) @ToString (callSuper = true)
 public class Cheese extends AbstractFood {
     protected Cheese(Long weight, Long calories, Float qualityMultiplier) {
         super("Cheese", weight, calories, qualityMultiplier);
@@ -14,10 +14,6 @@ public class Cheese extends AbstractFood {
 
     public static Cheese.CheeseBuilder builder() {
         return new Cheese.CheeseBuilder();
-    }
-
-    public String toString() {
-        return "Cheese(super=" + super.toString() + ")";
     }
 
     public static class CheeseBuilder {
@@ -45,6 +41,10 @@ public class Cheese extends AbstractFood {
 
         public Cheese build() {
             return new Cheese(this.weight, this.calories, this.qualityMultiplier);
+        }
+
+        public String toString() {
+            return "Cheese.CheeseBuilder(weight=" + this.weight + ", calories=" + this.calories + ", qualityMultiplier=" + this.qualityMultiplier + ")";
         }
     }
 }

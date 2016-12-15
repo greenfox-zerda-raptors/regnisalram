@@ -50,4 +50,6 @@ public abstract class AbstractAnimal implements Animal {
     public Integer getChildrenNumber() {
         return this.children.size();
     }
+
+
 }
