@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,8 +14,17 @@ public class App extends JFrame implements MouseListener {
 
     private JPanel panel;
     private ArrayList<Tile> tiles = new ArrayList<>();
+
+    User currentPlayer;
+    String userName;
+    Database usersAndGames;
+
     int numberOfPairs;
     int revealedTiles = 0;
+
+    static int clicks = 0;
+    int gamePoints = 100;
+
     private Tile firstRevealed;
     private Tile secondRevealed;
 
@@ -29,7 +39,11 @@ public class App extends JFrame implements MouseListener {
 
     public App() {
 
+        userName = DialogBox.getUserName();
+
         numberOfPairs = DialogBox.infoBox();
+
+        putUserInDatabase();
 
         setUpPanel();
 
@@ -50,15 +64,20 @@ public class App extends JFrame implements MouseListener {
         placePanel();
     }
 
-    private ArrayList<String> getTilesType(int gameSize) {
-        ArrayList<String> gamePieceFileNames = getImageFileNames();
-        Collections.shuffle(gamePieceFileNames);
-        ArrayList<String> tilesNeeded = new ArrayList<>();
-
-        for (int i = 0; i < gameSize; i++) {
-            tilesNeeded.add(gamePieceFileNames.get(i));
+    private void putUserInDatabase() {
+        usersAndGames = new Database();
+        try {
+            usersAndGames.setUp();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return tilesNeeded;
+
+        currentPlayer = new User(userName);
+        try {
+            usersAndGames.createUserIfNotExists(currentPlayer);
+        } catch (SQLException e) {
+
+        }
     }
 
     private void setUpPanel() {
@@ -69,6 +88,17 @@ public class App extends JFrame implements MouseListener {
 
         panel = new JPanel();
         this.add(panel);
+    }
+
+    private ArrayList<String> getTilesType(int gameSize) {
+        ArrayList<String> gamePieceFileNames = getImageFileNames();
+        Collections.shuffle(gamePieceFileNames);
+        ArrayList<String> tilesNeeded = new ArrayList<>();
+
+        for (int i = 0; i < gameSize; i++) {
+            tilesNeeded.add(gamePieceFileNames.get(i));
+        }
+        return tilesNeeded;
     }
 
     private void placePanel() {
@@ -98,14 +128,14 @@ public class App extends JFrame implements MouseListener {
             } else if (revealedTiles == 2) {
                 if (firstRevealed.gamePieceName.equals(secondRevealed.gamePieceName)) {
                     System.out.println("these are the same");
-                    setCleanSlate(clicked);
                 } else {
                     System.out.println("nope");
                     firstRevealed.switchRevealed();
                     secondRevealed.switchRevealed();
-                    setCleanSlate(clicked);
                 }
+                setCleanSlate(clicked);
             }
+            clicks++;
         }
         isGameWon(tiles);
     }
@@ -116,6 +146,13 @@ public class App extends JFrame implements MouseListener {
         revealedTiles = 1;
     }
 
+    private int countGamePoints() {
+        int minimumClicks = numberOfPairs * 2;
+        gamePoints -= (clicks - minimumClicks);
+        return gamePoints;
+
+    }
+
     private void isGameWon (ArrayList<Tile> tiles) {
         int matchedTiles = 0;
         for (Tile tile : tiles) {
@@ -124,9 +161,20 @@ public class App extends JFrame implements MouseListener {
             }
         }
         if (matchedTiles == numberOfPairs * 2) {
-            System.out.println("you won!");
+            putGameInDatabase();
+            System.out.println("you won! your got " + countGamePoints() + " points");
+            new LeaderBoard(usersAndGames, numberOfPairs);
         }
+    }
 
+    private void putGameInDatabase() {
+
+        PlayedGame currentGame = new PlayedGame(numberOfPairs, countGamePoints(), currentPlayer);
+        try {
+            usersAndGames.storePlayedGame(currentGame);
+        } catch (SQLException e) {
+            System.out.println("This game won't be saved since you didn't specify your username.");
+        }
     }
 
     private int getNumberOfRows() {
