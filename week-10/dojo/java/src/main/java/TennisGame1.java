@@ -19,31 +19,40 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
-        int tempScore;
+        String score;
         if (scoresAreEqual()) {
-            if (player1Score == 3 || player1Score == 4) {
+            if (player1Score > 2) {
                 score = "Deuce";
             } else {
-                score += scoreToString(player1Score);
-                score += "-All";
+                score = scoreToString(player1Score) + "-All";
             }
         }
         else if (anyScoreBiggerThan4()) {
-            int difference = player1Score - player2Score;
-            if (difference == 1) {
-                score = "Advantage player1";
-            } else if (difference == -1) {
-                score = "Advantage player2";
-            } else if (difference >= 2) {
-                score = "Win for player1";
+            if (advantagePlayer1()) {
+                score = "Advantage " + player1Name;
+            } else if (advantagePlayer2()) {
+                score = "Advantage " + player2Name;
+            } else if (winPlayer1()) {
+                score = "Win for " + player1Name;
             } else {
-                score = "Win for player2";
+                score = "Win for " + player2Name;
             }
         } else {
             score = scoreToString(player1Score) + "-" + scoreToString(player2Score);
         }
         return score;
+    }
+
+    private boolean winPlayer1() {
+        return player1Score - player2Score >= 2;
+    }
+
+    private boolean advantagePlayer2() {
+        return player1Score - player2Score == -1;
+    }
+
+    private boolean advantagePlayer1() {
+        return player1Score - player2Score == 1;
     }
 
     private String scoreToString(int playerScore) {
