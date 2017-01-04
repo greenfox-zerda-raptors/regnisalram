@@ -5,14 +5,14 @@
     <title>The Reddit</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="/posts/create" role="form">
         <label for="post_title"><h3>Post title</h3></label>
-        <input type="text" id="post_title"/>
+        <input type="text" id="post_title" name="title"/>
 
         <label for="post_text"><h3>Post</h3></label>
-        <textarea id="post_text" placeholder="Type your post here"></textarea>
+        <textarea id="post_text" name="message" placeholder="Type your post here"></textarea>
 
-        <button><input type="submit" id="submit" value="Submit"/></button>
+        <button><input type="submit" id="submit"/></button>
 
     </form>
 </body>
