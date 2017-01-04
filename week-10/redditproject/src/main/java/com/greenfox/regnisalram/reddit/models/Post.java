@@ -9,6 +9,7 @@ import javax.persistence.Id;
  * Created by regnisalram on 1/4/17.
  */
 @Entity
+
 public class Post {
 
     @Id
@@ -18,6 +19,14 @@ public class Post {
     private String postTitle;
     private String postMessage;
     private int score;
+
+    public Post() {
+    }
+
+    public Post(String title, String message) {
+        this.postTitle = title;
+        this.postMessage = message;
+    }
 
     public long getId() {
         return id;

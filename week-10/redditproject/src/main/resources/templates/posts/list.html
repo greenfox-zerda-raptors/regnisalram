@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>The Reddit</title>
@@ -7,5 +7,11 @@
 <body>
     <h1>You're in The Reddit</h1>
     <a href="add">Add new post</a>
+    <table>
+        <tr data-th-each="post : ${posts}">
+            <td data-th-text="${post.postTitle}"></td>
+            <td data-th-text="${post.postMessage}"></td>
+        </tr>
+    </table>
 </body>
 </html>
