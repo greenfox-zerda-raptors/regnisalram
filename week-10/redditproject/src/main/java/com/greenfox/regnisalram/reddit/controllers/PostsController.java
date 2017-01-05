@@ -5,6 +5,7 @@ import com.greenfox.regnisalram.reddit.services.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,9 +33,25 @@ public class PostsController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView create(@RequestParam("title") String title, @RequestParam("message") String message) {
+    public String create(@RequestParam("title") String title, @RequestParam("message") String message) {
         repository.save(new Post(title, message));
-        return new ModelAndView("redirect:/posts/");
+        return "redirect:/posts/";
+    }
+
+    @RequestMapping(value = "/{id}/upvote", method = RequestMethod.POST)
+    public String upvote(@PathVariable long id) {
+        Post post = repository.findOne(id);
+        post.setScore(post.getScore()+1);
+        repository.save(post);
+        return "redirect:/posts/";
+    }
+
+    @RequestMapping(value = "/{id}/downvote", method = RequestMethod.POST)
+    public String downvote(@PathVariable long id) {
+        Post post = repository.findOne(id);
+        post.setScore(post.getScore()-1);
+        repository.save(post);
+        return "redirect:/posts/";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -42,13 +59,4 @@ public class PostsController {
         return "posts/edit";
     }
 
-    @RequestMapping(value = "/upvote", method = RequestMethod.GET)
-    public String upvote(Model model) {
-        return "posts/list";
-    }
-
-    @RequestMapping(value = "/downvote", method = RequestMethod.GET)
-    public String downvote(Model model) {
-        return "posts/list";
-    }
 }

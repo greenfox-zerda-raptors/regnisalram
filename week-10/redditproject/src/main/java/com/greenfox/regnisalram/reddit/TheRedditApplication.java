@@ -20,7 +20,7 @@ public class TheRedditApplication implements CommandLineRunner {
 
 	public void run(String... strings) throws Exception {
 		for (int i = 1; i < 6; i++) {
-			repository.save(new Post("Title of post", "This is a post" + i));
+			repository.save(new Post("Title of post", "This is a post " + i));
 		}
 	}
 }
