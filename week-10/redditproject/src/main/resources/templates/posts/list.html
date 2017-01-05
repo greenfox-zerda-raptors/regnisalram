@@ -2,25 +2,52 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--<link rel="icon" href="../../favicon.ico">-->
+
     <title>The Reddit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap theme -->
+    <link href="../../static/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/theme.css" rel="stylesheet"/>
 </head>
 <body>
-    <h1>You're in The Reddit...</h1>
-    <a href="add">Add new post</a>
-    <table>
-        <tr>
-            <td><h3>score</h3></td>
-            <td colspan="2"><h3>vote!</h3></td>
-            <td><h3>title</h3></td>
-            <td><h3>post</h3></td>
-        </tr>
-        <tr data-th-each="post : ${posts}">
-            <td data-th-text="${post.score}"></td>
-            <td><a th:href="@{'/posts/{id}/upvote'(id=${post.id})}">+</a></td>
-            <td><a th:href="@{'/posts/{id}/downvote' (id=${post.id})}">-</a></td>
-            <td data-th-text="${post.postTitle}"></td>
-            <td data-th-text="${post.postMessage}"></td>
-        </tr>
-    </table>
+    <div class="container theme-showcase" role="main">
+        <div class="jumbotron">
+            <h1>You're in The Reddit</h1>
+        </div>
+        <div class="new_post">
+            <button type="button" class="btn btn-lg btn-info"><a href="add">Add new post</a></button>
+        </div>
+        <div class="page-header">
+            <h2>Posts</h2>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <th><h3>score</h3></th>
+                <th colspan="2"><h3>vote!</h3></th>
+                <th><h3>title</h3></th>
+                <th><h3>post</h3></th>
+            </thead>
+            <tbody>
+            <tr data-th-each="post : ${posts}">
+                <td data-th-text="${post.score}"></td>
+                <td><a th:href="@{'/posts/{id}/upvote'(id=${post.id})}">+</a></td>
+                <td><a th:href="@{'/posts/{id}/downvote' (id=${post.id})}">-</a></td>
+                <td data-th-text="${post.postTitle}"></td>
+                <td data-th-text="${post.postMessage}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
