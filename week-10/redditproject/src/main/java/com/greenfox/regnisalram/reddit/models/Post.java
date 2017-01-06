@@ -1,9 +1,6 @@
 package com.greenfox.regnisalram.reddit.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by regnisalram on 1/4/17.
@@ -17,6 +14,8 @@ public class Post {
     private long id;
 
     private String postTitle;
+
+    @Column(length=1048576)
     private String postMessage;
     private int score;
 

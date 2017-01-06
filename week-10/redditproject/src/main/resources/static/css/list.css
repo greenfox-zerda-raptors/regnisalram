@@ -1,0 +1,31 @@
+a {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+tbody td:nth-child(1) {
+    width: 64px;
+    text-align: center;
+}
+
+tbody td:nth-child(2) {
+    width: 32px;
+    text-align: right;
+}
+
+tbody td:nth-child(3) {
+    width: 32px;
+    text-align: left;
+}
+
+tbody td:nth-child(4) {
+    width: 200px;
+}
+
+tbody td:nth-child(5) {
+    width: 200px;
+    text-align: justify;
+}
