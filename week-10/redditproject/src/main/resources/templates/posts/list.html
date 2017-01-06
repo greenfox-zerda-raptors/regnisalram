@@ -35,7 +35,7 @@
             <thead>
                 <th><h3>score</h3></th>
                 <th colspan="2"><h3>vote!</h3></th>
-                <th><h3>title</h3></th>
+                <th colspan="2"><h3>title</h3></th>
                 <th><h3>post</h3></th>
             </thead>
             <tbody>
@@ -44,6 +44,7 @@
                 <td><a th:href="@{'/posts/{id}/upvote'(id=${post.id})}">+</a></td>
                 <td><a th:href="@{'/posts/{id}/downvote' (id=${post.id})}">-</a></td>
                 <td data-th-text="${post.postTitle}"></td>
+                <td data-th-text="${post.getFormattedDateTime()}"></td>
                 <td data-th-text="${post.postMessage}"></td>
             </tr>
             </tbody>

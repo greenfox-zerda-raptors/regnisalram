@@ -1,6 +1,12 @@
 package com.greenfox.regnisalram.reddit.models;
 
+import org.springframework.cglib.core.Local;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * Created by regnisalram on 1/4/17.
@@ -17,7 +23,10 @@ public class Post {
 
     @Column(length=1048576)
     private String postMessage;
+
     private int score;
+
+    private LocalDateTime createdAt;
 
     public Post() {
     }
@@ -25,6 +34,7 @@ public class Post {
     public Post(String title, String message) {
         this.postTitle = title;
         this.postMessage = message;
+        this.createdAt = LocalDateTime.now();
     }
 
     public long getId() {
@@ -53,5 +63,10 @@ public class Post {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getFormattedDateTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return createdAt.format(formatter);
     }
 }
