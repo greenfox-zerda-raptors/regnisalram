@@ -4,10 +4,7 @@ import com.greenfox.regnisalram.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by regnisalram on 1/4/17.
@@ -19,24 +16,24 @@ public class PostsController {
     @Autowired
     private PostService service;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public String index(Model model) {
         service.list(model);
         return "posts/list";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     public String addPost() {
         return "posts/new_post";
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping(value = "/create")
     public String create(@RequestParam("title") String title, @RequestParam("message") String message) {
         service.create(title, message);
         return "redirect:/posts/";
     }
 
-    @RequestMapping(value = "/{id}/upvote", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/upvote")
     public String upvote(@PathVariable long id) {
         service.upvote(id);
         return "redirect:/posts/";

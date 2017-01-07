@@ -2,6 +2,7 @@ package com.greenfox.regnisalram.reddit.services;
 
 import com.greenfox.regnisalram.reddit.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -14,8 +15,10 @@ public class PostService {
     @Autowired
     private PostRepository repository;
 
+    private Pageable pageable;
+
     public void list(Model model) {
-        model.addAttribute("posts", repository.findAll());
+        model.addAttribute("posts", repository.findAllByOrderByScoreDesc(pageable));
     }
 
     public void create(String title, String message) {

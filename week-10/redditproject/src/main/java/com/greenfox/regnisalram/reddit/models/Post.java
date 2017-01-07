@@ -1,12 +1,8 @@
 package com.greenfox.regnisalram.reddit.models;
 
-import org.springframework.cglib.core.Local;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
  * Created by regnisalram on 1/4/17.
