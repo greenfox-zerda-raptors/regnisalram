@@ -2,6 +2,7 @@ package com.greenfox.regnisalram.reddit.controllers;
 
 import com.greenfox.regnisalram.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,10 @@ public class PostsController {
     private PostService service;
 
     @GetMapping(value = "/")
-    public String index(Model model) {
-        service.list(model);
+    public String index(Model model,
+                        @RequestParam(name = "page", defaultValue = "0") Integer page,
+                        @RequestParam(name = "count", defaultValue = "5") Integer count) {
+        model.addAttribute("posts", service.list(page, count));
         return "posts/list";
     }
 

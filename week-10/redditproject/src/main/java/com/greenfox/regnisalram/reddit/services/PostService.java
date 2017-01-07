@@ -2,9 +2,9 @@ package com.greenfox.regnisalram.reddit.services;
 
 import com.greenfox.regnisalram.reddit.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 /**
  * Created by regnisalram on 1/5/17.
@@ -15,10 +15,9 @@ public class PostService {
     @Autowired
     private PostRepository repository;
 
-    private Pageable pageable;
 
-    public void list(Model model) {
-        model.addAttribute("posts", repository.findAllByOrderByScoreDesc(pageable));
+    public Page<Post> list(int page, int count) {
+        return repository.findAllByOrderByScoreDesc(new PageRequest(page, count));
     }
 
     public void create(String title, String message) {
