@@ -1,0 +1,38 @@
+<html layout:decorator="layout" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+
+    <div class="container theme-showcase" role="main">
+        <div class="jumbotron">
+            <h1>Add a meal</h1>
+        </div>
+        <form method="post" th:action="@{'/create'}" role="form">
+            <div class="form-group inline">
+                <label for="date-input" class="col-2 col-form-label">Date</label>
+                <input class="form-control mx-sm-3" type="date" value="2017-01-01" id="date-input"/>
+            </div>
+            <div class="form-group inline">
+                <label for="time-input" class="col-2 col-form-label">Time</label>
+                <input class="form-control mx-sm-3" type="time" value="13:45:00" id="time-input"/>
+            </div>
+            <div class="form-group inline">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Type of Meal</label>
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                    <option data-th-each="type : ${types}"
+                            value="${type.code}"
+                            data-th-text="${type.description}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="meal_description"><h3>Description</h3></label>
+                <textarea id="meal_description" class="form-control" name="meal_description" placeholder="What did you eat exactly?" rows="5"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
