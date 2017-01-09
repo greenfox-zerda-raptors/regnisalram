@@ -19,10 +19,10 @@ thead th:nth-child(3) {
     width: 150px;
 }
 
-/*tbody td:nth-child(1) {*/
-    /*width: 64px;*/
-    /*text-align: center;*/
-/*}*/
+tbody td:nth-child(1) {
+    width: 64px;
+    text-align: center;
+}
 
 tbody td:nth-child(2) {
     width: 32px;

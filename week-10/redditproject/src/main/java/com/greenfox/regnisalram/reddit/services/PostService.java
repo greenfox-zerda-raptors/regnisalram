@@ -12,9 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostService {
 
-    @Autowired
-    private PostRepository repository;
+    private final PostRepository repository;
 
+    @Autowired
+    public PostService(PostRepository repository) {
+        this.repository = repository;
+    }
 
     public Page<Post> list(int page, int count) {
         return repository.findAllByOrderByScoreDesc(new PageRequest(page, count));

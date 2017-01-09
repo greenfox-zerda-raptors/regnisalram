@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/posts", method = RequestMethod.GET)
 public class PostsController {
 
-    @Autowired
     private PostService service;
+
+    @Autowired
+    public PostsController(PostService service) {
+        this.service = service;
+    }
 
     @GetMapping(value = "/")
     public String index(Model model,

@@ -3,7 +3,7 @@
 <div layout:fragment="content">
 
     <div class="container theme-showcase" role="main">
-        <form method="post" action="/posts/create" role="form">
+        <form method="post" th:action="@{'/posts/create'}" role="form">
             <div class="form-group">
                 <label for="post_title"><h3>Post title</h3></label>
                 <input type="text" class="form-control" id="post_title" name="title"/>
