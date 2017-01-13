@@ -2,6 +2,10 @@
     display: inline-block;
 }
 
+select {
+    font-size: larger;
+}
+
 /*a {*/
     /*color: inherit;*/
 /*}*/
